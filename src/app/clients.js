@@ -134,10 +134,3 @@ let genderBalance = function (man, women) {
 };
 
 getResponse();
-
-var url = document.location.href;
-console.log(url);
-
-let arrs = document.querySelectorAll('a');
-
-console.log(arrs[1].href);

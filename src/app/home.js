@@ -49,10 +49,14 @@ for (let i =0; i < arr.length; i++){
     }
 }
 
-var url = document.location.href;
-console.log(url);
+let url = document.location.href;
+let menuArr = document.querySelectorAll('a');
 
-let arrs = document.querySelectorAll('a');
-
-console.log(arrs[1].href);
+for (let i of menuArr){
+    if (i.href == url){
+        i.style.color ='red';
+    }else{
+        i.style.color ='black';
+    }
+}
 
