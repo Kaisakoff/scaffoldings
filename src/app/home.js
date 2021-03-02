@@ -23,7 +23,6 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 let compSoft = arr.slice(firstElementArr, lastElementArr).join(' ');
-console.log(compSoft);
 operationSystem.append(compSoft);
 
 
@@ -50,4 +49,10 @@ for (let i =0; i < arr.length; i++){
     }
 }
 
+var url = document.location.href;
+console.log(url);
+
+let arrs = document.querySelectorAll('a');
+
+console.log(arrs[1].href);
 

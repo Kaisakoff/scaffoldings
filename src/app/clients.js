@@ -1,9 +1,5 @@
 import '../styles/clients.scss';
 
-// fetch('https://gist.githubusercontent.com/oDASCo/3f4014d24dc79e1e29b58bfa96afaa1b/raw/677516ee3bd278f7e3d805108596ca431d00b629/db.json')
-//   .then(response => response.json())
-//   .then(response => console.log(response));
-
 async function getResponse() {
   let response = await fetch('https://gist.githubusercontent.com/oDASCo/3f4014d24dc79e1e29b58bfa96afaa1b/raw/677516ee3bd278f7e3d805108596ca431d00b629/db.json');
   let content = await response.json();
@@ -138,3 +134,10 @@ let genderBalance = function (man, women) {
 };
 
 getResponse();
+
+var url = document.location.href;
+console.log(url);
+
+let arrs = document.querySelectorAll('a');
+
+console.log(arrs[1].href);

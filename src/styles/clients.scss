@@ -1,7 +1,22 @@
 .wrapper {
-    max-width: 1024px;
+    width: 1024px;
     margin: 0 auto;
 }
+
+.navigation {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    background-color: rgb(105, 237, 100);
+    line-height: 30px;
+}
+
+.operation-system, .browser {
+    font-size: 12px;
+    line-height: 5px;
+}
+
+////////
 
 .clients-table {
     border-collapse: collapse;
