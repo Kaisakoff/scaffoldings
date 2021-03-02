@@ -1,0 +1,42 @@
+.entry-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 320px;
+    padding: 30px;
+    margin: 0 auto;
+    border: 2px solid black;
+    background-color: rgb(141, 235, 129);
+}
+
+input {
+    margin-top: 10px;
+}
+
+.enter-btn,
+.reg-btn {
+    margin: 20px auto 0;
+    padding: 5px;
+}
+
+.pre-reg-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+    padding: 5px;
+    margin: 50px auto;
+    border: 2px solid black;
+    background-color: rgb(231, 15, 98);
+}
+
+.reg-form {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 320px;
+    padding: 30px;
+    margin: 50px auto 0;
+    border: 2px solid black;
+    background-color: rgb(137, 171, 235);
+}
