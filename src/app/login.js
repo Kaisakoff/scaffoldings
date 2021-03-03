@@ -48,6 +48,8 @@ entryForm.addEventListener('submit', (event) => {
 
     if (getObj) {
         if (getObj[key] === passwordValue) {
+            localStorage.setItem('active', key);
+            // console.log(localStorage.getItem('active'));
             window.location.href = 'http://localhost:8080/home.html';
         } else {
             let span = document.createElement('span');

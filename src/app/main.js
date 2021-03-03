@@ -19,3 +19,19 @@ for (let i of menuArr){
         i.style.color ='black';
     }
 }
+
+
+let rowActive = localStorage.getItem('active');
+console.log(rowActive);
+
+if (!rowActive && window.location.href != 'http://localhost:8080/login.html'){
+    window.location.href = 'http://localhost:8080/login.html'
+}
+
+
+let logoutBtn = document.querySelector('.logout-btn')
+logoutBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    localStorage.removeItem('active');
+    window.location.href = 'http://localhost:8080/login.html'
+})
