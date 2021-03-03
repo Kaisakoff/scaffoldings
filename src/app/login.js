@@ -11,7 +11,10 @@ let regBtn = document.querySelector('.reg-btn');
 let entryLogin = document.querySelector('.entry-login');
 let regLogin = document.querySelector('.reg-login');
 
-console.log(entryLogin);
+let entryPassrord = document.querySelector('.entry-pass');
+let regPassrord = document.querySelector('.reg-pass');
+
+//console.log(entryPassrord);
 
 preRegForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -22,14 +25,60 @@ preRegForm.addEventListener('submit', (event) => {
 });
 
 
+let userArr = [];
 regForm.addEventListener('submit', (event) => {
     event.preventDefault();
+
+    let key = {
+        [regLogin.value]: regPassrord.value,
+    }
+    localStorage.setItem(regLogin.value, JSON.stringify(key));
 
     entryForm.style.display = "flex";
     preRegForm.style.display = "flex";
     regForm.style.display = "none";
 });
 
+entryForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let key = entryLogin.value
+    let passwordValue = entryPassrord.value;
+    let getRow = localStorage.getItem(key);
+    let getObj = JSON.parse(getRow);
+
+    if (getObj) {
+        if (getObj[key] === passwordValue) {
+            window.location.href = 'http://localhost:8080/home.html';
+        } else {
+            let span = document.createElement('span');
+            span.append('Password not correct. Please try agen!');
+            span.style.color = 'red';
+            span.classList.add('message');
+            let message = entryForm.querySelector('.message');
+
+            if (message) {
+                message.remove();
+                entryPassrord.after(span);
+            } else {
+                entryPassrord.after(span);
+            }
+        }
+
+    } else {
+        let span = document.createElement('span');
+        span.append('E-mail not correct. Please try agen!');
+        span.style.color = 'red';
+        span.classList.add('message');
+        let message = entryForm.querySelector('.message');
+
+        if (message) {
+            message.remove();
+            entryLogin.after(span);
+        } else {
+            entryLogin.after(span);
+        }
+    }
+})
 
 
 entryLogin.addEventListener('blur', (event) => {
@@ -91,3 +140,4 @@ let checkMail = (element) => {
         }
     }
 }
+
