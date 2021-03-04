@@ -1,42 +1,42 @@
 import '../styles/clients.scss';
 
 async function getResponse() {
-  let response = await fetch('https://gist.githubusercontent.com/oDASCo/3f4014d24dc79e1e29b58bfa96afaa1b/raw/677516ee3bd278f7e3d805108596ca431d00b629/db.json');
-  let content = await response.json();
+  const response = await fetch('https://gist.githubusercontent.com/oDASCo/3f4014d24dc79e1e29b58bfa96afaa1b/raw/677516ee3bd278f7e3d805108596ca431d00b629/db.json');
+  const content = await response.json();
 
-  let modal = document.querySelector('.modal');
-  let modalInfo = document.querySelector('.modal-info');
-  let table = document.querySelector('.clients-table');
-  let caption = document.querySelector('.table-caption');
+  const modal = document.querySelector('.modal');
+  const modalInfo = document.querySelector('.modal-info');
+  const table = document.querySelector('.clients-table');
+  const caption = document.querySelector('.table-caption');
   caption.style.backgroundColor = 'khaki';
   let male = 0;
   let female = 0;
 
-  for (let key in content) {
-    let tr = document.createElement('tr');
+  for (const key in content) {
+    const tr = document.createElement('tr');
 
-    let tdName = document.createElement('td');
-    let tdCompany = document.createElement('td');
-    let tdEmail = document.createElement('td');
-    let tdPhone = document.createElement('td');
-    let tdBalance = document.createElement('td');
-    let tdRegistred = document.createElement('td');
-    let tdButton = document.createElement('td');
+    const tdName = document.createElement('td');
+    const tdCompany = document.createElement('td');
+    const tdEmail = document.createElement('td');
+    const tdPhone = document.createElement('td');
+    const tdBalance = document.createElement('td');
+    const tdRegistred = document.createElement('td');
+    const tdButton = document.createElement('td');
 
-    let button = document.createElement('button');
+    const button = document.createElement('button');
     button.className = 'del-btn';
     button.append('Delete');
 
-    let isActive = content[key].isActive;
-    let gender = content[key].gender;
-    let name = content[key].name;
-    let company = content[key].company;
-    let email = content[key].email;
-    let phone = content[key].phone;
-    let balance = content[key].balance;
+    const isActive = content[key].isActive;
+    const gender = content[key].gender;
+    const name = content[key].name;
+    const company = content[key].company;
+    const email = content[key].email;
+    const phone = content[key].phone;
+    const balance = content[key].balance;
 
-    let registered = content[key].registered;
-    let date = new Date(Date.parse(registered.split(' ').join('')));
+    const registered = content[key].registered;
+    const date = new Date(Date.parse(registered.split(' ').join('')));
 
     table.append(tr);
 
@@ -75,7 +75,7 @@ async function getResponse() {
     button.addEventListener('click', () => {
       modal.style.display = 'block';
 
-      let btnYes = document.querySelector('.yes');
+      const btnYes = document.querySelector('.yes');
       btnYes.addEventListener('click', () => {
         tr.remove();
         modal.style.display = 'none';
@@ -86,23 +86,21 @@ async function getResponse() {
 
   caption.append(genderBalance(male, female));
 
-  let btnNo = document.querySelector('.no');
+  const btnNo = document.querySelector('.no');
   btnNo.addEventListener('click', () => {
     modal.style.display = 'none';
   });
 
-  let closeInfo = document.querySelector('.close-info');
+  const closeInfo = document.querySelector('.close-info');
   closeInfo.addEventListener('click', () => {
     modalInfo.style.display = 'none';
   });
 }
 
-let backToUp = document.querySelector('.back-up');
+const backToUp = document.querySelector('.back-up');
 backToUp.addEventListener('click', (event) => {
   window.scrollTo(0, 0);
-})
-
-
+});
 
 let formatDate = function (mSeconds) {
 
@@ -112,25 +110,23 @@ let formatDate = function (mSeconds) {
   let mm = mSeconds.getMonth() + 1;
   if (mm < 10) mm = '0' + mm;
 
-  let yyyy = mSeconds.getFullYear();
+  const yyyy = mSeconds.getFullYear();
 
   return dd + '.' + mm + '.' + yyyy;
-}
+};
 
-let genderBalance = function (man, women) {
-  let message = '';
-
+let genderBalance = (man, women) => {
   if (man > women) {
-    return message = 'In the database: ' + man + ' men and ' + women + ' women.' + ' There are ' + Number(man - women) + ' more male clients.';
-  };
+    return 'In the database: ' + man + ' men and ' + women + ' women.' + ' There are ' + Number(man - women) + ' more male clients.';
+  }
 
   if (man < women) {
-    return message = 'In the database: ' + man + ' men and ' + women + ' women.' + ' There are ' + Number(women - man) + ' more male clients.';
-  };
+    return 'In the database: ' + man + ' men and ' + women + ' women.' + ' There are ' + Number(women - man) + ' more male clients.';
+  }
 
   if (man === women) {
-    return message = 'In the database: ' + man + ' men and ' + women + ' women.' + ' Male and female clients are the same.';
-  };
+    return 'In the database: ' + man + ' men and ' + women + ' women.' + ' Male and female clients are the same.';
+  }
 };
 
 getResponse();
