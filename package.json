@@ -26,13 +26,15 @@
     "webpack-merge": "5.7.3"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.11.1"
+    "@googlemaps/js-api-loader": "^1.11.1",
+    "express": "^4.17.1"
   },
   "scripts": {
     "serve": "webpack serve --config webpack.config.dev.js",
     "lint:es": "eslint .",
     "lint:scss": "sass-lint --verbose --no-exit",
-    "build:prod": "webpack --config webpack.config.prod.js"
+    "build:prod": "webpack --config webpack.config.prod.js",
+    "start": "node server.js"
   },
   "author": "Ilya Ivanov <com.ilya.ivanov@gmail.com>"
 }

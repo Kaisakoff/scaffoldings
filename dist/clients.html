@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дипломная работа по js - Страница со списком клиентов</title>
+</head>
+
+<body>
+    <header>
+        <nav class="wrapper">
+            <ul class="navigation">
+                <li class="main"><a href="home.html">Home</a></li>
+                <li class="main"><a href="clients.html">Clients</a></li>
+                <li class="main"><a href="map.html">Map</a></li>
+                <li class="logout-btn"><button>Exit of system</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="wrapper">
+            <table class="clients-table">
+                <caption class="table-caption">Clients table</caption>
+                <tr class="table-head">
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Email</th>
+                    <th>Phone №</th>
+                    <th>Balance</th>
+                    <th>Date registration</th>
+                    <th></th>
+                </tr>
+            </table>
+            <button class="back-up">Back to up</button>
+        </div>
+    
+        <div class="modal">
+            <div class="modal-content">
+                <p>You realy want delete this client?</p>
+                <button class="yes">Yes</button>
+                <button class="no">No</button>
+            </div>
+        </div>
+    
+        <div class="modal-info">
+            <div class="modal-info-content">
+                <p class="close-info">x</p>
+                <p>The client data was successfully deleted.</p>
+            </div>
+        </div>
+    </main>
+<script type="text/javascript" src="main.js"></script><script type="text/javascript" src="clients.js"></script></body>
+
+</html>

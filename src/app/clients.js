@@ -11,6 +11,7 @@ async function getResponse() {
   caption.style.backgroundColor = 'khaki';
   let male = 0;
   let female = 0;
+  let greatBalance = 0;
 
   for (const key in content) {
     const tr = document.createElement('tr');
@@ -82,9 +83,14 @@ async function getResponse() {
         modalInfo.style.display = 'block';
       });
     });
-  }
 
-  caption.append(genderBalance(male, female));
+    const bestBalance = Number(balance.replace(/[$,]/g, ''));
+    if (bestBalance >= greatBalance){
+      greatBalance = bestBalance;
+    }
+  }
+  
+  caption.append(genderBalance(male, female, greatBalance));
 
   const btnNo = document.querySelector('.no');
   btnNo.addEventListener('click', () => {
@@ -98,11 +104,11 @@ async function getResponse() {
 }
 
 const backToUp = document.querySelector('.back-up');
-backToUp.addEventListener('click', (event) => {
+backToUp.addEventListener('click', () => {
   window.scrollTo(0, 0);
 });
 
-let formatDate = function (mSeconds) {
+let formatDate = (mSeconds) => {
 
   let dd = mSeconds.getDate();
   if (dd < 10) dd = '0' + dd;
@@ -115,17 +121,17 @@ let formatDate = function (mSeconds) {
   return dd + '.' + mm + '.' + yyyy;
 };
 
-let genderBalance = (man, women) => {
+let genderBalance = (man, women, balance) => {
   if (man > women) {
-    return 'In the database: ' + man + ' men and ' + women + ' women.' + ' There are ' + Number(man - women) + ' more male clients.';
+    return 'In the database: ' + man + ' men and ' + women + ' women.' + ' There are ' + Number(man - women) + ' more male clients.' + ' Maximal balance: ' + balance + '$';
   }
 
   if (man < women) {
-    return 'In the database: ' + man + ' men and ' + women + ' women.' + ' There are ' + Number(women - man) + ' more male clients.';
+    return 'In the database: ' + man + ' men and ' + women + ' women.' + ' There are ' + Number(women - man) + ' more male clients.' + ' Maximal balance: ' + balance + '$';
   }
 
   if (man === women) {
-    return 'In the database: ' + man + ' men and ' + women + ' women.' + ' Male and female clients are the same.';
+    return 'In the database: ' + man + ' men and ' + women + ' women.' + ' Male and female clients are the same.' + ' Maximal balance: ' + balance + '$';
   }
 };
 

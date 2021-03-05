@@ -17,9 +17,7 @@ const changeColor = (colorActive, colorUnactive) => {
 changeColor('red', 'black');
 
 const domen = window.location.origin;
-
 const rowActive = localStorage.getItem('active');
-
 if (!rowActive && document.location.href !== domen + '/login.html') {
   document.location.href = domen + '/login.html';
 }

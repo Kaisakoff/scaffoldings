@@ -38,12 +38,12 @@ entryForm.addEventListener('submit', (event) => {
   const passwordValue = entryPassrord.value;
   const getRow = localStorage.getItem(key);
   const getObj = JSON.parse(getRow);
+  const domen = window.location.origin;
 
   if (getObj) {
     if (getObj[key] === passwordValue) {
       localStorage.setItem('active', key);
-      // console.log(localStorage.getItem('active'));
-      window.location.href = 'http://localhost:8080/home.html';
+      window.location.href = domen + '/home.html';
     } else {
       const span = document.createElement('span');
       span.append('Password not correct. Please try agen!');
